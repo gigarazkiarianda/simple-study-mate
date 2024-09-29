@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 const useTimer = () => {
-  const [time, setTime] = useState(0);
+  const [time, setTime] = useState(0); // Store time as total seconds
   const [isRunning, setIsRunning] = useState(false);
 
   useEffect(() => {
@@ -9,7 +9,7 @@ const useTimer = () => {
 
     if (isRunning && time > 0) {
       interval = setInterval(() => {
-        setTime((prev) => prev - 1);
+        setTime((prev) => prev - 1); // Decrease time by 1 second
       }, 1000);
     } else if (time === 0) {
       setIsRunning(false);
@@ -19,7 +19,7 @@ const useTimer = () => {
   }, [isRunning, time]);
 
   const startTimer = (initialTime: number) => {
-    setTime(initialTime);
+    setTime(initialTime); // Set the timer with total seconds
     setIsRunning(true);
   };
 
